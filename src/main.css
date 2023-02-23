@@ -42,7 +42,7 @@ header {
   background-color: #fff;
   color: #333;
   border-radius: 15px;
-  padding: 40px 50px;
+  padding: 40px;
   margin: 20px 0;
   position: relative;
 }
@@ -191,15 +191,14 @@ input:focus {
   color: rebeccapurple;
 }
 
-/* FIX: Remove position: absolute to keep about icon at the bottom of the
- * document */
 .about-link {
   display: flex;
   justify-content: flex-end;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  font-size: 30px;
 }
 
-/* FIX: Remove position: absolute to keep about icon at the bottom of the
- * document */
 .about-link a {
   color: #fff;
   cursor: pointer;
@@ -215,6 +214,11 @@ input:focus {
 
 .about p {
   margin: 10px 0;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #ff6a95;
 }
 
 @media (max-width: 600px) {

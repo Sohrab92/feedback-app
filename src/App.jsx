@@ -1,8 +1,11 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Header from "./components/Header";
 import FeedbackForm from "./components/FeedbackForm";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackList from "./components/FeedbackList";
+import AboutIcon from "./components/AboutIcon";
+import About from "./components/About";
 import FeedbackData from "./data/FeedbackData";
 
 function App() {
@@ -18,14 +21,36 @@ function App() {
   }
 
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <div className="container">
-        <FeedbackForm handleAdd={addFeedback} />
-        <FeedbackStats feedbacks={feedbacks} />
-        <FeedbackList feedbacks={feedbacks} handleDelete={deleteFeedback} />
-      </div>
-    </>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <div className="container">
+                <FeedbackForm handleAdd={addFeedback} />
+                <FeedbackStats feedbacks={feedbacks} />
+                <FeedbackList
+                  feedbacks={feedbacks}
+                  handleDelete={deleteFeedback}
+                />
+              </div>
+              <AboutIcon />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <div className="container">
+              <About />
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
