@@ -1,14 +1,17 @@
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import FeedbackContext from "./FeedbackContext";
 import RatingSelect from "./RatingSelect";
 import Card from "./Card";
 import Button from "./Button";
 
-function FeedbackForm({ handleAdd }) {
+function FeedbackForm() {
   const [rating, setRating] = useState(10);
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState(null);
+
+  const { addFeedback } = useContext(FeedbackContext);
 
   function handleTextChange(e) {
     const newText = e.target.value;
@@ -31,7 +34,7 @@ function FeedbackForm({ handleAdd }) {
 
     if (text.trim().length >= 10) {
       const newFeedback = { id: uuidv4(), rating, text };
-      handleAdd(newFeedback);
+      addFeedback(newFeedback);
 
       setText("");
     }

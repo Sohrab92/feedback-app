@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import FeedbackContext from "./components/FeedbackContext";
 import Header from "./components/Header";
 import FeedbackForm from "./components/FeedbackForm";
 import FeedbackStats from "./components/FeedbackStats";
@@ -21,36 +22,37 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <>
+    <FeedbackContext.Provider
+      value={{ feedbacks, addFeedback, deleteFeedback }}
+    >
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <div className="container">
+                  <FeedbackForm />
+                  <FeedbackStats />
+                  <FeedbackList />
+                </div>
+                <AboutIcon />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
               <div className="container">
-                <FeedbackForm handleAdd={addFeedback} />
-                <FeedbackStats feedbacks={feedbacks} />
-                <FeedbackList
-                  feedbacks={feedbacks}
-                  handleDelete={deleteFeedback}
-                />
+                <About />
               </div>
-              <AboutIcon />
-            </>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <div className="container">
-              <About />
-            </div>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </FeedbackContext.Provider>
   );
 }
 
