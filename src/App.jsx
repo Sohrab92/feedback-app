@@ -11,6 +11,10 @@ import FeedbackData from "./data/FeedbackData";
 
 function App() {
   const [feedbacks, setFeedbacks] = useState(FeedbackData);
+  const [feedbackInEdit, setFeedbackInEdit] = useState({
+    item: {},
+    edit: false,
+  });
 
   function addFeedback(newFeedback) {
     setFeedbacks([newFeedback, ...feedbacks]);
@@ -21,9 +25,29 @@ function App() {
       setFeedbacks(feedbacks.filter((item) => item.id !== id));
   }
 
+  function editFeedback(item) {
+    setFeedbackInEdit({ item, edit: true });
+  }
+
+  function updateFeedback(editedItem) {
+    setFeedbacks(
+      feedbacks.map((item) => {
+        return item.id === editedItem.id ? editedItem : item;
+      })
+    );
+    setFeedbackInEdit({ item: {}, edit: false });
+  }
+
   return (
     <FeedbackContext.Provider
-      value={{ feedbacks, addFeedback, deleteFeedback }}
+      value={{
+        feedbacks,
+        feedbackInEdit,
+        addFeedback,
+        deleteFeedback,
+        editFeedback,
+        updateFeedback,
+      }}
     >
       <BrowserRouter>
         <Header />
