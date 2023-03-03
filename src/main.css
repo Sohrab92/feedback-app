@@ -142,6 +142,11 @@ input:focus {
   padding-bottom: 40px;
 }
 
+.empty-list {
+  text-align: center;
+  padding: 40px 0;
+}
+
 .num-display {
   position: absolute;
   top: -10px;

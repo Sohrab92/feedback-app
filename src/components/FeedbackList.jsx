@@ -7,8 +7,8 @@ import Spinner from "./Spinner";
 function FeedbackList() {
   const { isLoading, feedbacks } = useContext(FeedbackContext);
 
-  if (!isLoading && !feedbacks) {
-    return <p>No feedback yet!</p>;
+  if (!isLoading && (!feedbacks || feedbacks.length === 0)) {
+    return <p className="empty-list">No feedback yet!</p>;
   }
 
   const feedbackItems = feedbacks.map((item) => (
