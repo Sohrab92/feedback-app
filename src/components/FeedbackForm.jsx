@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { useState, useContext, useEffect } from "react";
-import FeedbackContext from "./FeedbackContext";
+import FeedbackContext from "../FeedbackContext";
 import RatingSelect from "./RatingSelect";
 import Card from "./Card";
 import Button from "./Button";
@@ -59,7 +59,7 @@ function FeedbackForm() {
   return (
     <Card>
       <form onSubmit={handleSubmit}>
-        <h2>How would you rate your service with us?</h2>
+        <h3>How would you rate your service with us?</h3>
         <RatingSelect rating={rating} setRating={setRating} />
         <div className="input-group">
           <input

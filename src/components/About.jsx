@@ -5,7 +5,7 @@ function About() {
   return (
     <Card>
       <div className="about">
-        <h2>About this project</h2>
+        <h3>About this project</h3>
         <p>
           This is a React app for leaving feedback about a project or services.
         </p>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import FeedbackContext from "./FeedbackContext";
+import FeedbackContext from "../FeedbackContext";
 
 function FeedbackStats() {
   const { feedbacks } = useContext(FeedbackContext);
