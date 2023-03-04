@@ -7,10 +7,12 @@ import Spinner from "./Spinner";
 function FeedbackList() {
   const { isLoading, feedbacks } = useContext(FeedbackContext);
 
+  // Shows this if loading has finished and there is no feedback at all
   if (!isLoading && (!feedbacks || feedbacks.length === 0)) {
     return <p className="empty-list">No feedback yet!</p>;
   }
 
+  // Creates an array of feedback items with fading animation using the motion library
   const feedbackItems = feedbacks.map((item) => (
     <motion.div
       key={item.id}
@@ -23,6 +25,7 @@ function FeedbackList() {
     </motion.div>
   ));
 
+  // Shows spinner if feedbacks are still loading, otherwise displays them with animation
   return isLoading ? (
     <Spinner />
   ) : (

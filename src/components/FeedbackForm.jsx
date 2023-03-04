@@ -14,6 +14,7 @@ function FeedbackForm() {
   const { feedbackInEdit, updateFeedback, addFeedback } =
     useContext(FeedbackContext);
 
+  // Checks if any feedback is in edit mode, if yes sets text, rating and enables the button
   useEffect(() => {
     if (feedbackInEdit.edit === true) {
       setBtnDisabled(false);
@@ -22,6 +23,7 @@ function FeedbackForm() {
     }
   }, [feedbackInEdit]);
 
+  // Handles text changes in the input area, thus enables/disables the button and shows/hides a message
   function handleTextChange(e) {
     const newText = e.target.value;
     setText(newText);
@@ -38,6 +40,7 @@ function FeedbackForm() {
     }
   }
 
+  // Handles form submission differently for new or edited feedback and resets the states to clear the form
   function handleSubmit(e) {
     e.preventDefault();
 

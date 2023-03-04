@@ -1,4 +1,5 @@
 function RatingSelect({ rating, setRating }) {
+  // Updates the rating state when the user selects a new rating.
   function handleRatingChange(e) {
     const newRating = +e.currentTarget.value;
     setRating(newRating);

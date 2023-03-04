@@ -4,11 +4,13 @@ import FeedbackContext from "../FeedbackContext";
 function FeedbackStats() {
   const { feedbacks } = useContext(FeedbackContext);
 
+  // Calculates the average rating based on the feedbacks array
   let average =
     feedbacks.reduce((acc, curr) => {
       return acc + curr.rating;
     }, 0) / feedbacks.length;
 
+  // Rounds the average rating to one decimal place
   average = Math.round(average * 10) / 10;
 
   return (
