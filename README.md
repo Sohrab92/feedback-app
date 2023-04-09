@@ -10,8 +10,8 @@ Remove feedbacks
 
 ## Technologies used
 
-React   
+React
 
 ## Demo
 
-A live demo of this application is available at https://zesty-sunflower-c0cf35.netlify.app/
+A live demo of this application is available at https://feedback-app-sohrabzsf.netlify.app
